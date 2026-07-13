@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: reservas-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reservas_db
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 5000
+            read-timeout: 5000
+            logger-level: basic
+
+clients:
+  usuarios:
+    url: http://localhost:8081
+  canchas:
+    url: http://localhost:8082
+  horarios:
+    url: http://localhost:8084
+
+server:
+  port: 8085

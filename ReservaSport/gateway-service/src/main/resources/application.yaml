@@ -1,0 +1,79 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-service
+
+  cloud:
+    gateway:
+      routes:
+        - id: usuarios-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/usuarios/**
+          filters:
+            - StripPrefix=1
+
+        - id: canchas-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/canchas/**
+          filters:
+            - StripPrefix=1
+
+        - id: complejos-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/complejos/**
+          filters:
+            - StripPrefix=1
+
+        - id: horarios-service
+          uri: http://localhost:8084
+          predicates:
+            - Path=/horarios/**
+          filters:
+            - StripPrefix=1
+
+        - id: reservas-service
+          uri: http://localhost:8085
+          predicates:
+            - Path=/reservas/**
+          filters:
+            - StripPrefix=1
+
+        - id: pagos-service
+          uri: http://localhost:8086
+          predicates:
+            - Path=/pagos/**
+          filters:
+            - StripPrefix=1
+
+        - id: notificaciones-service
+          uri: http://localhost:8087
+          predicates:
+            - Path=/notificaciones/**
+          filters:
+            - StripPrefix=1
+
+        - id: promociones-service
+          uri: http://localhost:8088
+          predicates:
+            - Path=/promociones/**
+          filters:
+            - StripPrefix=1
+
+        - id: resenas-service
+          uri: http://localhost:8089
+          predicates:
+            - Path=/resenas/**
+          filters:
+            - StripPrefix=1
+
+        - id: reportes-service
+          uri: http://localhost:8090
+          predicates:
+            - Path=/reportes/**
+          filters:
+            - StripPrefix=1
