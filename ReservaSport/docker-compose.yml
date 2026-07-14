@@ -1,0 +1,131 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - reservas-network
+
+  usuarios-service:
+    build: ./usuarios-service
+    container_name: usuarios-service
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8081"
+    networks:
+      - reservas-network
+
+  canchas-service:
+    build: ./canchas-service
+    container_name: canchas-service
+    depends_on:
+      - postgres
+    ports:
+      - "8082:8082"
+    networks:
+      - reservas-network
+
+  complejos-service:
+    build: ./complejos-service
+    container_name: complejos-service
+    depends_on:
+      - postgres
+    ports:
+      - "8083:8083"
+    networks:
+      - reservas-network
+
+  horarios-service:
+    build: ./horarios-service
+    container_name: horarios-service
+    depends_on:
+      - postgres
+    ports:
+      - "8084:8084"
+    networks:
+      - reservas-network
+
+  reservas-service:
+    build: ./reservas-service
+    container_name: reservas-service
+    depends_on:
+      - postgres
+    ports:
+      - "8085:8085"
+    networks:
+      - reservas-network
+
+  pagos-service:
+    build: ./pagos-service
+    container_name: pagos-service
+    depends_on:
+      - postgres
+    ports:
+      - "8086:8086"
+    networks:
+      - reservas-network
+
+  notificaciones-service:
+    build: ./notificaciones-service
+    container_name: notificaciones-service
+    depends_on:
+      - postgres
+    ports:
+      - "8087:8087"
+    networks:
+      - reservas-network
+
+  promociones-service:
+    build: ./promociones-service
+    container_name: promociones-service
+    depends_on:
+      - postgres
+    ports:
+      - "8088:8088"
+    networks:
+      - reservas-network
+
+  resenas-service:
+    build: ./resenas-service
+    container_name: resenas-service
+    depends_on:
+      - postgres
+    ports:
+      - "8089:8089"
+    networks:
+      - reservas-network
+
+  reportes-service:
+    build: ./reportes-service
+    container_name: reportes-service
+    depends_on:
+      - postgres
+    ports:
+      - "8090:8090"
+    networks:
+      - reservas-network
+
+  gateway-service:
+    build: ./gateway-service
+    container_name: gateway-service
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - reservas-network
+
+networks:
+  reservas-network:
+    driver: bridge

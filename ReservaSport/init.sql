@@ -1,0 +1,10 @@
+CREATE DATABASE usuarios_db;
+CREATE DATABASE canchas_db;
+CREATE DATABASE complejos_db;
+CREATE DATABASE horarios_db;
+CREATE DATABASE reservas_db;
+CREATE DATABASE pagos_db;
+CREATE DATABASE notificaciones_db;
+CREATE DATABASE promociones_db;
+CREATE DATABASE resenas_db;
+CREATE DATABASE reportes_db;

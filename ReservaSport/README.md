@@ -51,6 +51,7 @@ El proyecto está compuesto por diez microservicios de negocio y un API Gateway 
 - Lombok
 - SLF4J
 - Git
+- GitHub
 - IntelliJ IDEA
 - Postman
 - pgAdmin 4
@@ -58,13 +59,12 @@ El proyecto está compuesto por diez microservicios de negocio y un API Gateway 
 - Mockito
 - JaCoCo
 - Docker
-- Trello
+
 
 ## API Gateway
 
 El API Gateway funciona en el puerto:
 
-```text
 http://localhost:8080
 
 ## Documentación de la API
@@ -157,5 +157,4 @@ Actualmente el proyecto cuenta con:
 - Proyecto gestionado con Maven.
 - Pruebas unitarias implementadas con JUnit 5 y Mockito.
 - Generación de cobertura de código mediante JaCoCo.
-- Organización y seguimiento del desarrollo mediante Trello.
 - Preparado para despliegue utilizando Docker.
